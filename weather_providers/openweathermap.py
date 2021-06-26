@@ -14,61 +14,61 @@ class OpenWeatherMap(BaseWeatherProvider):
     def get_icon_from_openweathermap_weathercode(self, weathercode, is_daytime):
 
         icon_dict = {
-                        200: "thundershower_rain",  # thunderstorm with light rain
-                        201: "thundershower_rain",  # thunderstorm with rain
-                        202: "thundershower_rain",  # thunderstorm with heavy rain
-                        210: "thundershower_rain",  # light thunderstorm
-                        211: "thundershower_rain",  # thunderstorm
-                        212: "thundershower_rain",  # heavy thunderstorm
-                        221: "thundershower_rain",  # ragged thunderstorm
-                        230: "thundershower_rain",  # thunderstorm with light drizzle
-                        231: "thundershower_rain",  # thunderstorm with drizzle
-                        232: "thundershower_rain",  # thunderstorm with heavy drizzle
-                        300: "climacell_drizzle" if is_daytime else "rain_night_light",  # light intensity drizzle
-                        301: "climacell_drizzle" if is_daytime else "rain_night_light",  # drizzle
-                        302: "climacell_rain" if is_daytime else "rain_night",  # heavy intensity drizzle
-                        310: "climacell_drizzle" if is_daytime else "rain_night_light",  # light intensity drizzle rain
-                        311: "climacell_drizzle" if is_daytime else "rain_night_light",  # drizzle rain
-                        312: "climacell_rain" if is_daytime else "rain_night",  # heavy intensity drizzle rain
-                        313: "climacell_rain" if is_daytime else "rain_night",  # shower rain and drizzle
-                        314: "climacell_rain_heavy" if is_daytime else "rain_night_heavy",  # heavy shower rain and drizzle
-                        321: "climacell_drizzle" if is_daytime else "rain_night_light",  # shower drizzle
-                        500: "climacell_rain_light" if is_daytime else "rain_night_light",  # light rain
-                        501: "climacell_rain" if is_daytime else "rain_night",  # moderate rain
-                        502: "climacell_rain_heavy" if is_daytime else "rain_night_heavy",  # heavy intensity rain
-                        503: "climacell_rain_heavy" if is_daytime else "rain_night_heavy",  # very heavy rain
-                        504: "climacell_rain_heavy" if is_daytime else "rain_night_heavy",  # extreme rain
-                        511: "climacell_freezing_rain",  # freezing rain
-                        520: "climacell_rain_light" if is_daytime else "rain_night_light",  # light intensity shower rain
-                        521: "climacell_rain" if is_daytime else "rain_night",  # shower rain
-                        522: "climacell_rain_heavy" if is_daytime else "rain_night_heavy",  # heavy intensity shower rain
-                        531: "climacell_rain" if is_daytime else "rain_night",  # ragged shower rain
-                        600: "climacell_snow_light",  # light snow
+                        200: "lightning",  # thunderstorm with light rain
+                        201: "lightning",  # thunderstorm with rain
+                        202: "rain_lightning",  # thunderstorm with heavy rain
+                        210: "lightning",  # light thunderstorm
+                        211: "lightning",  # thunderstorm
+                        212: "rain_lightning",  # heavy thunderstorm
+                        221: "lightning",  # ragged thunderstorm
+                        230: "lightning",  # thunderstorm with light drizzle
+                        231: "lightning",  # thunderstorm with drizzle
+                        232: "rain_lightning",  # thunderstorm with heavy drizzle
+                        300: "rain0_sun" if is_daytime else "rain1_moon",  # light intensity drizzle
+                        301: "rain0_sun" if is_daytime else "rain1_moon",  # drizzle
+                        302: "rain1_sun" if is_daytime else "rain1_moon",  # heavy intensity drizzle
+                        310: "rain0_sun" if is_daytime else "rain1_moon",  # light intensity drizzle rain
+                        311: "rain1_sun" if is_daytime else "rain1_moon",  # drizzle rain
+                        312: "rain1",  # heavy intensity drizzle rain
+                        313: "rain1_sun" if is_daytime else "rain1_moon",  # shower rain and drizzle
+                        314: "rain1" if is_daytime else "rain1_moon",  # heavy shower rain and drizzle
+                        321: "rain0",  # shower drizzle
+                        500: "rain0",  # light rain
+                        501: "rain1",  # moderate rain
+                        502: "rain2",  # heavy intensity rain
+                        503: "rain2",  # very heavy rain
+                        504: "rain2",  # extreme rain
+                        511: "rain_snow",  # freezing rain
+                        520: "rain0_sun" if is_daytime else "rain1_moon",  # light intensity shower rain
+                        521: "rain1_sun" if is_daytime else "rain1_moon",  # shower rain
+                        522: "rain2",  # heavy intensity shower rain
+                        531: "rain1",  # ragged shower rain
+                        600: "snow_sun" if is_daytime else "snow_moon",  # light snow
                         601: "snow",  # Snow
                         602: "snow",  # Heavy snow
-                        611: "sleet",  # Sleet
-                        612: "sleet",  # Light shower sleet
-                        613: "sleet",  # Shower sleet
-                        615: "sleet",  # Light rain and snow
-                        616: "sleet",  # Rain and snow
-                        620: "climacell_snow_light",  # Light shower snow
+                        611: "snow",  # Sleet
+                        612: "rain_snow",  # Light shower sleet
+                        613: "rain_snow",  # Shower sleet
+                        615: "rain_snow",  # Light rain and snow
+                        616: "rain_snow",  # Rain and snow
+                        620: "snow_sun" if is_daytime else "snow_moon",  # Light shower snow
                         621: "snow",  # Shower snow
                         622: "snow",  # Heavy shower snow
-                        701: "climacell_fog",  # mist
-                        711: "fire_smoke",  # Smoke
-                        721: "climacell_fog",  # Haze
-                        731: "dust_ash_sand",  # sand/ dust whirls
-                        741: "climacell_fog",  # fog
-                        751: "dust_ash_sand",  # sand
-                        761: "dust_ash_sand",  # dust
-                        762: "volcano",  # volcanic ash
+                        701: "rain0",  # mist
+                        711: "rain0",  # Smoke
+                        721: "rain0",  # Haze
+                        731: "rain0",  # sand/ dust whirls
+                        741: "rain0",  # fog
+                        751: "rain0",  # sand
+                        761: "rain0",  # dust
+                        762: "rain0",  # volcanic ash
                         771: "wind",    # squalls
-                        781: "tornado_hurricane",    # tornado
-                        800: "clear_sky_day" if is_daytime else "clearnight",  # clear sky
-                        801: "few_clouds" if is_daytime else "partlycloudynight",  # few clouds: 11-25%
-                        802: "scattered_clouds" if is_daytime else "partlycloudynight",  # scattered clouds: 25-50%
-                        803: "mostly_cloudy" if is_daytime else "mostly_cloudy_night",  # broken clouds: 51-84%
-                        804: "mostly_cloudy" if is_daytime else "mostly_cloudy_night",  # overcast clouds: 85-100%
+                        781: "wind",    # tornado
+                        800: "sun" if is_daytime else "moon",  # clear sky
+                        801: "cloud_sun" if is_daytime else "cloud_moon",  # few clouds: 11-25%
+                        802: "cloud",  # scattered clouds: 25-50%
+                        803: "clouds",  # broken clouds: 51-84%
+                        804: "clouds",  # overcast clouds: 85-100%
                     }
 
         icon = icon_dict[weathercode]
