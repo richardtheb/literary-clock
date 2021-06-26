@@ -64,7 +64,10 @@ def main():
 	quotes_path = 'images/metadata/quote_%s_*_credits.png' % hour_minute
 	quotes = glob(quotes_path)
 	if len(quotes) == 0:
-		pass
+		now_time = now.strftime('%H:%M')
+		draw_time = ImageDraw.Draw(image)
+		time_font = ImageFont.truetype('Literata72pt-Regular.ttf', 144)
+		draw_time.text((220, 150), now_time, font=time_font, fill=0)
 	else:
 		quote = quotes[randrange(0, len(quotes))]
 		quoteImage = Image.open(quote).convert('1')
