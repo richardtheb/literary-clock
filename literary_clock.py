@@ -62,9 +62,7 @@ def main():
 	hour_minute = now.strftime('%H%M')
 
 	quotes_path = 'images/metadata/quote_%s_*_credits.png' % hour_minute
-	print(quotes_path)
 	quotes = glob(quotes_path)
-	print(len(quotes))
 	if len(quotes) == 0:
 		pass
 	else:
