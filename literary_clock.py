@@ -1,12 +1,13 @@
 import os
 import textwrap
 import sys
+import time
 
 from datetime import datetime
 from glob import glob
 from random import randrange
-from PIL import Image, ImageDraw, ImageFont, ImageOps
-
+from inky.auto import auto
+display = auto()
 from weather_providers import openweathermap
 
 def format_weather_description(weather_description):
@@ -81,15 +82,12 @@ def main():
 if __name__ == '__main__':
 	image = main()
 	try:
-		epd = epd7in5.EPD()
-		epd.init()
-		if datetime.now().minute == 0 and datetime.now().hour == 2:
-			epd.Clear()
-		epd.display(epd.getbuffer(image))
-		epd.sleep()
-	
+        display.set_border(Inky.black)
+	    display.set_image(image)
+        display.show()
+        
 	except IOError as e:
 		print(e)
 	
 	except KeyboardInterrupt:
-		epd.sleep()
+		time.sleep(60)
